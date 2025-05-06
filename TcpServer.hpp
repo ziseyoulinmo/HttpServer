@@ -47,12 +47,12 @@ public:
 
     void init()
     {
-        Sock();
+        Socket();
         Bind();
         Listen();
     }
 
-    void Sock()
+    void Socket()
     {
         listenSock_ = socket(AF_INET,SOCK_STREAM,0);
         if(listenSock_ < 0)
@@ -90,6 +90,11 @@ public:
             exit(3);
         }
         LOG(INFO,"listen success");
+    }
+
+    int Sock()
+    {
+        return listenSock_;
     }
 
     ~TcpServer()
